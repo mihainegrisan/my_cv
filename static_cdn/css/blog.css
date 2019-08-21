@@ -1,10 +1,7 @@
-html, body {
-    background-color: #a9d7d1;
-    text-align: center;
-    font-family: 'Raleway', Helvetica, sans-serif;
-    min-width: 320px;
+body {
     margin:0;
     padding:0;
+    font-family:helvetica, sans-serif;
 }
 
 a {
@@ -35,6 +32,12 @@ h2 {
     padding:10px;
     background:#efefef;
     height:100%;
+    overflow: auto;
+}
+
+.sidebar_content {
+    padding: 10%;
+
 }
 
 p.date {
@@ -84,10 +87,17 @@ input[type=submit] {
 /* comments */
 .comment {
     padding:10px;
+    border-radius: 10%;
+    border-color: black;
+    border: 3px;
+    border-style: solid;
 }
+
+/*
 .comment:nth-child(even) {
-    background: #efefef;
+    background:#efefef;
 }
+*/
 .comment .info {
     font-weight:bold;
     font-size:12px;
