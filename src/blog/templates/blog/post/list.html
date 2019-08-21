@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+    <h1>My Experiences:</h1>
+
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+
+    <!-- If the user is accessing the blog, they will see the list of all posts. If
+    they filter by posts tagged with a specific tag, they will see the
+    tag that they are filtering by. Now, change the way tags are
+    displayed, as follows:  class='tags'-->
+
+
+    {% for post in posts %}
+        <h2>
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </h2>
+
+        <p class="tags">
+            <strong>Tags:</strong>
+            {% for tag in post.tags.all %}
+                <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
+                    {{ tag.name }}
+                </a>
+                {% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            <!-- We build the URL with url "blog:post_list_by_tag" tag.slug,  using the name of the URL and the slug tag as its parameter. We separate the tags by commas. -->
+        </p>
+        <!-- <p class="tags">Tags: {{ post.tags.all|join:", " }}</p> -->
+
+
+        <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+        {{ post.body|markdown|truncatewords_html:30}}
+        <!-- It was post.body|truncatewords:30|linebreaks before
+            The truncatewords_html filter truncates a string after a certain number of
+            words, avoiding unclosed HTML tags. -->
+    {% endfor %}
+    {% include 'pagination.html' with page=posts %}
+    <!-- it was page=posts with post_list view -->
+    <!-- The pagination template expects a Page object in order to render
+previous and next links and to display the current page and total
+pages of results.
+    Since the Page object we are passing to the template is called posts(page=posts), we include the pagination template in the post list template, passing the parameters to render it correctly.
+     !!! If we use the PostListView class then  (page=page_obj)
+You can follow this method to
+reuse your pagination template in paginated views of different
+models.-->
+{% endblock %}

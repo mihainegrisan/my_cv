@@ -1,0 +1,84 @@
+/* This example might not work properly on mobile devices.
+        Because of the     position: fixed;
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul.sidenav {
+  font-size: 20px;
+  background-color: #333;
+  list-style-type: none;  /* taking out the bullets */
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  height: 100%;  /* Full height */
+  position: fixed;  /* Make it stick, even on scroll */
+  overflow: auto;  /* Enable scrolling if the sidenav has too much content */
+}
+ul.sidenav li a {
+  /*Displaying the links as block elements makes the whole link area      clickable (not just the text), and it allows us to specify the width     (and padding, margin, height, etc. if you want)*/
+  display: block;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;  /* removes the underline */
+}
+ul.sidenav li {
+  text-align: center;
+}
+
+/* Change the link color on hover */
+ul.sidenav li a:hover:not(.active) {
+  color: white;
+  background-color: red;
+}
+ul.sidenav li a.active {
+  background-color: red;
+  color: white;
+}
+
+
+div.content {
+  margin-left: 15%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+
+@media screen and (max-width: 999px) {
+    ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        overflow: hidden;
+    }
+    ul.sidenav li {
+        float: left;
+    }
+
+    ul.sidenav li a {
+        float: left;
+        display: inline-block;
+        text-align: center;
+        padding: 14px 16px;
+    }
+    li {
+        float: left;
+    }
+    li a:hover {
+        background-color: red;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 540px) {
+  ul.sidenav li a {
+    text-align: center;
+    float: none;
+  }

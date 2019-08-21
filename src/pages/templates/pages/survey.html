@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+{% endblock %}
+
+{% block title%}Survey{% endblock %}
+
+{% block content%}
+<h1 id="title">Survey Form (HTML)</h1>
+<div id="form-outer">
+    <form id="survey-form">
+        <p id="description">Let us know how we can improve X </p>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="name" id="name-label">* Name:</label>
+            </div>
+            <div class="rightTab">
+                <input autofocus type="text" class="input-field" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+        </div>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="email" id="email-label">* Email:</label>
+            </div>
+            <div class="rightTab">
+                <input type="email" class="input-field" id="email" name="email" placeholder="Enter your Email" required>
+            </div>
+        </div>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="age" id="number-label">* Age:</label>
+            </div>
+            <div class="rightTab">
+                <input type="number" class="input-field" id="number" name="age" min="1" max="125" placeholder="Age" required>
+            </div>
+        </div>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="currentPos">Which option best describes your current role?</label>
+            </div>
+            <div class="rightTab">
+                <select id="dropdown" class="dropdown" name="currentPos">
+                    <option disabled selected>Select an option</option>
+                    <option value="student">Student</option>
+                    <option value="job">Full time job</option>
+                    <option value="learner">Full time learner</option>
+                    <option value="preferNo">Prefer not to say</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="rowTab">
+            <div class="labels">
+                <label for="userRatings">* How likely is that you would recommend X to a friend?</label>
+            </div>
+            <div class="rightTab">
+                <ul>
+                    <li class="radio">
+                        <label>
+                            <input type="radio" class="userRatings" name="radio-buttons" class="userRatings" value="1"  required>Definitely</label>
+                        </li>
+                        <li class="radio">
+                            <label>
+                                <input type="radio" name="radio-buttons" class="userRatings" value="2">Maybe</label>
+                        </li>
+                        <li class="radio">
+                            <label>
+                                <input type="radio" name="radio-buttons" class="userRatings" value="3">Not sure
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences">What do you like most in X:
+                    </label>
+                </div>
+                <div class="rightTab">
+                    <select name="role" class="dropdown">
+                        <option disabled selected>Select an option</option>
+                        <option>Challenges</option>
+                        <option>Projects</option>
+                        <option>Community</option>
+                        <option>Open Source</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="preferences">Things that should be improved in the future (Check all that apply):</label>
+                </div>
+                <div class="rightTab">
+                    <ul id="preferences">
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="1">Front-end Projects</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="2">Back-end Projects</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="3">Data Visualization</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="4">Challenges</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="5">Open Source Community</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="6">Gitter help rooms</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="7">Videos</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="8">City Meetups</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="9">Wiki</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="10">Forum</label></li>
+                        <li class="checkbox"><label><input type="checkbox" name="fcc" value="11">Additional Courses</label></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rowTab">
+                <div class="labels">
+                    <label for="comments">Any Comments or Suggestions?</label>
+                </div>
+                <div class="rightTab">
+                    <textarea class="input-field" id="comments" rows="5" cols="40" placeholder="Enter your comment here..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" id="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

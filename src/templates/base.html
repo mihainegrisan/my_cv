@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/base.css' %}" type="text/css" rel="stylesheet">
+
+    {% block link %}
+
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <ul class="sidenav">
+        <li><a class="active" href="{% url 'pages:home' %}">Home</a></li>
+        <li><a href="{% url 'dashboard' %}">Login App</a></li>
+        <li><a href="{% url 'blog:post_list' %}">Blog App</a></li>
+        <li><a href="{% url 'pages:about' %}">About</a></li>
+        <li><a href="{% url 'pages:contact' %}">Contact</a></li>
+        <li><a href="{% url 'pages:survey' %}">Survey</a></li>
+      </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+  </body>
+</html>
