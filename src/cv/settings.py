@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qu$6!t+(zl_0ab0a_dl5ag6x7+z@g#7+xof#u^e(n^dnis_nx2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'pages',
-    'blog.apps.BlogConfig', # The BlogConfig class is your application configuration.
     'taggit',
+    'blog.apps.BlogConfig',
     'social_django',
 ]
 
@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn') # content delivery network
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn') # content delivery network
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -145,9 +145,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-# LOGIN_REDIRECT_URL: Tells Django which URL to redirect after a successful login if no next parameter is present in the request
-# LOGIN_URL: The URL to redirect the user to log in (for example, views using the login_required decorator)
-# LOGOUT_URL: The URL to redirect the user to log out
 
 
 AUTHENTICATION_BACKENDS = (
