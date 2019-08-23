@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}?{% now 'D' %}">
 {% endblock %}
 
 {% block title %}About{% endblock %}

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static 'css/survey.css' %}">
+    <link rel="stylesheet" href="{% static 'css/survey.css' %}?{% now 'D' %}">
 {% endblock %}
 
 {% block title%}Survey{% endblock %}

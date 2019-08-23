@@ -132,9 +132,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
+
 #The base.css won't go to static_cdn unless
 # Uncomment this ... run collectstatic ... then comment it again
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn') # content delivery network
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')

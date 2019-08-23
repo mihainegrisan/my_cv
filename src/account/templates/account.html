@@ -5,12 +5,15 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/account.css' %}">
+        <link rel="stylesheet" href="{% static 'css/account.css' %}?{% now 'D' %}">
     </head>
 
     <body>
         <div id="header">
-            <span class="logo">Bookmarks</span>
+            <span class="logo">
+                <a href="{% url 'dashboard' %}">Home Login App</a>
+            </span>
+
             {% if request.user.is_authenticated %}
             <ul class="menu">
                 <li {% if section == 'dashboard' %}class="selected"{% endif %}>

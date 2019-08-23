@@ -5,7 +5,7 @@
 <html>
     <head>
         <title>{% block title %}{% endblock %}</title>
-        <link href="{% static 'css/blog.css' %}" type="text/css" rel="stylesheet">
+        <link href="{% static 'css/blog.css' %}?{% now 'D' %}" type="text/css" rel="stylesheet">
     </head>
     <body>
         <div id="content">

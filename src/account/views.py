@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 
@@ -77,6 +77,7 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully.')
+            return redirect('dashboard')
         else:
             messages.error(request, 'Error updating your profile.')
     else:
