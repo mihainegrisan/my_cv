@@ -25,7 +25,7 @@ SECRET_KEY = 'qu$6!t+(zl_0ab0a_dl5ag6x7+z@g#7+xof#u^e(n^dnis_nx2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['mysite.com', '127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -151,15 +151,29 @@ LOGOUT_URL = 'logout'
 
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
+    #'social_core.backends.github.GithubOAuth2',
+    #'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
-    'social_core.backends.facebook.FacebookOAuth2',
+
 )
 
+# SECURE_SSL_REDIRECT = True
+
+# development
+# SOCIAL_AUTH_FACEBOOK_KEY = '500657657173593' # Facebook App ID
+# SOCIAL_AUTH_FACEBOOK_SECRET = '69df7169ee117bd21cfc7ea40d8f51fd' # Facebook App Secret
+# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1053881313048-ki6ajljemcns6ou60ee1skj4a9bbg9lm.apps.googleusercontent.com' # Google Consumer Key
+# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8jDm82jSjrOsNln3QJGwq9ly' # Google Consumer Secret
+
+
+# uncomment for production
 SOCIAL_AUTH_FACEBOOK_KEY = '445334359632844' # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = '77807ab18529c7ee024839d740dffb6e' # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '585939395621-tgbl6hierobpkc6h3pe1uj04ok6ip2l5.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81xazK6Sqj0SXzKJl0Bq3ANc' # Google Consumer Secret
