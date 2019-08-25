@@ -16,6 +16,16 @@ def dashboard(request):
     return render(request,
                   'account/dashboard.html',
                   {'section': 'dashboard'})
+@login_required
+def images(request):
+    return render(request,
+                  'account/images.html',
+                  {'section': 'images'})
+@login_required
+def people(request):
+    return render(request,
+                  'account/people.html',
+                  {'section': 'people'})
 
 def register(request):
     if request.method == 'POST':
