@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'taggit',
     'blog.apps.BlogConfig',
     'social_django',
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -114,30 +116,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'Europe/Bucharest'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-
-
-#The base.css won't go to static_cdn unless
-# Uncomment this ... run collectstatic ... then comment it again
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn') # content delivery network
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
@@ -148,7 +136,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-
 
 AUTHENTICATION_BACKENDS = (
     #'social_core.backends.github.GithubOAuth2',
@@ -163,17 +150,19 @@ AUTHENTICATION_BACKENDS = (
 
 # SECURE_SSL_REDIRECT = True
 
-# development
-# SOCIAL_AUTH_FACEBOOK_KEY = '500657657173593' # Facebook App ID
-# SOCIAL_AUTH_FACEBOOK_SECRET = '69df7169ee117bd21cfc7ea40d8f51fd' # Facebook App Secret
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1053881313048-ki6ajljemcns6ou60ee1skj4a9bbg9lm.apps.googleusercontent.com' # Google Consumer Key
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8jDm82jSjrOsNln3QJGwq9ly' # Google Consumer Secret
+if DEBUG == True:
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
+    SOCIAL_AUTH_FACEBOOK_KEY = '500657657173593' # Facebook App ID
+    SOCIAL_AUTH_FACEBOOK_SECRET = '69df7169ee117bd21cfc7ea40d8f51fd' # Facebook App Secret
+    SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'password']
 
-# uncomment for production
-SOCIAL_AUTH_FACEBOOK_KEY = '445334359632844' # Facebook App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = '77807ab18529c7ee024839d740dffb6e' # Facebook App Secret
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1053881313048-ki6ajljemcns6ou60ee1skj4a9bbg9lm.apps.googleusercontent.com' # Google Consumer Key
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8jDm82jSjrOsNln3QJGwq9ly' # Google Consumer Secret
+else:
+    SOCIAL_AUTH_FACEBOOK_KEY = '445334359632844' # Facebook App ID
+    SOCIAL_AUTH_FACEBOOK_SECRET = '77807ab18529c7ee024839d740dffb6e' # Facebook App Secret
+    SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'password']
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '585939395621-tgbl6hierobpkc6h3pe1uj04ok6ip2l5.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81xazK6Sqj0SXzKJl0Bq3ANc' # Google Consumer Secret
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '585939395621-tgbl6hierobpkc6h3pe1uj04ok6ip2l5.apps.googleusercontent.com' # Google Consumer Key
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81xazK6Sqj0SXzKJl0Bq3ANc' # Google Consumer Secret

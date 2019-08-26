@@ -53,7 +53,9 @@ p.date {
     font-weight:bold;
 }
 
+
 /* forms */
+
 label {
     float:left;
     clear:both;
@@ -69,6 +71,7 @@ input, textarea {
     padding:6px 10px;
     font-size:12px;
 }
+
 input[type=submit] {
     font-weight:bold;
     background:#00abff;
@@ -83,6 +86,7 @@ input[type=submit] {
     clear:both;
     padding-left:10px;
 }
+
 
 /* comments */
 .comment {

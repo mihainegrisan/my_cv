@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Muli);
-
+* {
+    box-sizing: border-box !important;
+}
 body {
     margin: 0;
     padding: 0;
@@ -19,9 +21,13 @@ a:hover {
     color: #00a74f;
 }
 
-h1, h2, h3, h4, h5 , h6 { font-family: 'Muli', sans-serif; font-weight: normal; }
+h1, h2, h3, h4, h5 , h6 {
+    font-family: 'Muli', sans-serif;
+    font-weight: normal;
+}
 
 h1 {
+    font-size: 32px !important;
     border-bottom: 1px solid #bbb;
     padding: 0 0 10px 0;
     margin: 10px 0 20px 0;
@@ -36,7 +42,7 @@ ol {
 }
 
 #header {
-    padding: 10px 100px;
+    padding: 5px 100px;
     font-size: 14px;
     background: #12c064;
     color: #fff;
@@ -81,55 +87,57 @@ ol {
 }
 
 #content {
-    padding: 30px 100px;
+    padding: 10px 100px;
+    overflow: auto;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
 /* forms */
-form {
-    overflow: auto;
+
+.login-body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-form p {
+.login-form {
     width: 100%;
-    overflow: auto;
+    min-width: 340px;
+    max-width: 450px;
+    padding: 35px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+input {
+    color: black;
+}
+input.btn {
+    color: white !important;
+}
+input[type="checkbox"] {
+    display: block;
+    opacity: 1 !important;
+}
+label[for="id_photo"] {
+    padding-left: 0;
+    padding-top: 90px;
+}
+label[for="photo-clear_id"] {
+    display: block;
+    padding-left: 30px;
+    margin-bottom: 30px;
 }
 
-label {
-    float: left;
-    clear: both;
-    color: #333;
-    margin-bottom: 4px;
-}
-input, textarea {
-    clear: both;
-    float: left;
-    margin: 0 0 10px;
-    background: #efefef;
-    border: 0;
-    padding: 6px 10px;
-    font-size: 14px;
-}
-input[type=submit], a.button {
-    font-weight: bold;
-    background: #12c064;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 14px;
-    text-transform: uppercase;
-}
-.errorlist {
-    color: #cc0033;
-    float: left;
-    clear: both;
-    padding-left: 10px;
-}
-.helptext {
-    margin: 0 0 20px 0;
-    color: #aaa;
-    clear: both;
-    float: left;
-    font-size: 13px;
-}
+
 /* messages */
 ul.messages {
     margin: 10px 100px;
@@ -167,15 +175,12 @@ ul.messages li a.close {
     text-shadow:none;
 }
 
-.login-form {
-    float:left;
-}
 
 /* social-auth */
-.social {
-    float:right;
-}
+
 .social li {
+    border: 1px solid #ddd;
+    border-radius: 8px;
     list-style:none;
     padding:10px 20px;
     margin:0 0 10px 0;
@@ -189,88 +194,3 @@ ul.messages li a.close {
 .social li.facebook { background:#3b5399; }
 .social li.twitter { background:#00cffa; }
 .social li.google { background:#de1710; }
-
-
-/* images */
-
-.image-preview, .image-detail {
-    max-width:300px;
-    float:left;
-    margin:0 20px 20px 0;
-}
-.image-detail { margin-top:20px; }
-.image-info div {
-    padding:20px 0;
-    overflow:auto;
-}
-.count {
-    color:#aaa;
-    border:3px solid #bbb;
-    border-radius:26px;
-    padding:10px 20px;
-    margin:20px 10px 0;
-}
-a.like, a.follow { float:right; margin-top:-8px; }
-
-#image-list { overflow:auto; }
-#image-list .image {
-    float:left;
-    width:220px;
-    height:300px;
-    margin:0 10px 10px 10px;
-    border-top:8px solid #12c064;
-    background:#eee;
-}
-#image-list img { width:220px; height:220px; }
-#image-list .info { padding:10px; }
-#image-list .info a { color:#333; }
-.image-likes div {
-    float:left;
-    width:auto;
-    padding:10px;
-    text-align:center;
-}
-.image-likes img {
-    width:120px;
-    height:120px;
-    border-radius:50%;
-}
-
-/* users */
-#people-list img {
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    margin-bottom:20px;
-}
-#people-list .user {
-    width:180px;
-    float:left;
-    overflow:auto;
-    padding:10px;
-}
-#people-list .info { text-align:center; }
-img.user-detail {
-    border-radius:50%;
-    float:left;
-}
-.profile-info {
-    float:left;
-    overflow:auto;
-    margin-right:20px;
-}
-.image-container { margin-top:40px; }
-
-/* actions */
-.action {
-    clear:both;
-    overflow:auto;
-}
-.action .images {
-    float:left;
-    margin:0 10px 10px 0;
-}
-.action .date {
-    font-style:italic;
-    color:#ccc;
-}

@@ -1,15 +1,52 @@
 {% extends 'account.html' %}
+{% load widget_tweaks %}
 
 {% block title %}Edit your account{% endblock %}
 
 {% block content %}
-    <h1>Edit your account</h1>
-    <p>You can edit your account using the following form:</p>
-    <!--We include enctype="multipart/form-data" in our form to enable file uploads.-->
-    <form action="." method="post" enctype="multipart/form-data">
-        {{ user_form.as_p }}
-        {{ profile_form.as_p }}
-        {% csrf_token %}
-        <input type="submit" value="Save changes">
-    </form>
+<div class="login-body">
+    <div class="login-form">
+        <!--We include enctype="multipart/form-data" in our form to enable file uploads.-->
+        <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- instead of form . as_p  -->
+            <div class="row center-align">
+                <h4>Edit account</h4>
+            </div>
+
+            <div class="row"></div>
+
+            {% for field in user_form %}
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ field.errors }}
+                    {{ field.label_tag }}
+                    {% render_field field class="validate" %}
+                </div>
+            </div>
+            {% endfor %}
+            {% for field in profile_form %}
+                {% if field.html_name != 'photo' %}
+                    <div class="row">
+                        <div class="input-field col s12">
+                            {{ field.errors }}
+                            {{ field.label_tag }}
+                            {% render_field field class="validate" %}
+                        </div>
+                    </div>
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+
+            <div class="row"></div>
+
+            <div class="col s6 right-align">
+                <input class="waves-effect waves-light btn" type="submit" value="Save">
+            </div>
+        </form>
+    </div>
+</div>
+
+
 {% endblock %}

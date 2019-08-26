@@ -15,17 +15,17 @@ from django.contrib import messages
 def dashboard(request):
     return render(request,
                   'account/dashboard.html',
-                  {'section': 'dashboard'})
+                  {'section' : 'dashboard'})
 @login_required
 def images(request):
     return render(request,
                   'account/images.html',
-                  {'section': 'images'})
+                  {'section' : 'images'})
 @login_required
 def people(request):
     return render(request,
                   'account/people.html',
-                  {'section': 'people'})
+                  {'section' : 'people'})
 
 def register(request):
     if request.method == 'POST':
@@ -49,7 +49,7 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request,
                   'account/register.html',
-                  {'user_form': user_form})
+                  {'user_form' : user_form})
 
 
 def user_login(request):
@@ -72,7 +72,7 @@ def user_login(request):
                 return HttpResponse('Invalid login')
     else:
         form = LoginForm()
-    return render(request, 'account/login.html', {'form':form})
+    return render(request, 'account/login.html', {'form' : form})
 
 
 @login_required
@@ -93,5 +93,9 @@ def edit(request):
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
-    return render(request, 'account/edit.html', {'user_form':user_form,
-                                'profile_form':profile_form})
+
+    context = {
+               'user_form' : user_form,
+               'profile_form' : profile_form
+    }
+    return render(request, 'account/edit.html', context)
