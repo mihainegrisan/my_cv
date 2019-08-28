@@ -9,10 +9,11 @@ body{
 .container{
     font-family: "Rimouski";
     width: 300px;
+
     background-color: #FFF;
 
     display: block;
-    margin: 50px auto;
+    margin: 65px auto;
 
     border-radius: 10px;
     padding-bottom : 50px;

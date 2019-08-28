@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block link %}
-    <link rel="stylesheet" href="{% static 'fonts/Remouski.css' %}?{% now 'D' %}">
+    <link rel="stylesheet" href="{% static 'font/Rimouski.css' %}">
     <link rel="stylesheet" href="{% static 'css/weather.css' %}?{% now 'D' %}">
 {% endblock %}
 
@@ -20,5 +20,7 @@
     </div>
 </div>
 
+<!-- I had to find a way to keep the icon path dynamic inside weather.js -->
+<script>let img_path = "{% static 'icons' %}"</script>
 <script type="text/javascript" src="{% static 'js/weather.js' %}"></script>
 {% endblock %}
