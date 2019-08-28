@@ -20,6 +20,7 @@ ul.sidenav {
   position: fixed;  /* Make it stick, even on scroll */
   overflow: auto;  /* Enable scrolling if the sidenav has too much content */
 }
+
 ul.sidenav li a {
   /*Displaying the links as block elements makes the whole link area      clickable (not just the text), and it allows us to specify the width     (and padding, margin, height, etc. if you want)*/
   display: block;
@@ -45,31 +46,22 @@ ul.sidenav li a.active {
 div.content {
   margin-left: 15%;
   padding: 1px 16px;
-  /*height: 1000px;*/
+  height: 1000px;
 }
 
-@media screen and (max-width: 549px) {
-  ul.sidenav li a {
-    text-align: center;
-    float: none;
-    }
-}
 
 @media screen and (max-width: 999px) {
     ul.sidenav {
         width: 100%;
         height: auto;
         position: relative;
-        overflow: hidden;
-    }
-    ul.sidenav li {
-        float: left;
+        /* overflow: hidden; */
     }
 
     ul.sidenav li a {
         float: left;
-        display: inline-block;
-        text-align: center;
+        /* display: inline-block; */
+        /* text-align: center; */
         padding: 14px 16px;
     }
 
@@ -79,4 +71,11 @@ div.content {
     div.content {
         margin-left: 0;
     }
+}
+
+/* 690 */
+@media screen and (max-width: 724px) {
+  ul.sidenav li a {
+    text-align: center;
+    float: none;
 }

@@ -23,7 +23,9 @@ from django.conf.urls.static import static
 from pages.views import home_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('borsec-admin/', admin.site.urls),
+
     path('', include('pages.urls', namespace='pages')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls')),

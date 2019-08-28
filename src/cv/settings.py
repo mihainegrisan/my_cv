@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'social_django',
 
     'widget_tweaks',
+    'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 
     'social_django.middleware.SocialAuthExceptionMiddleware', # <--
 ]

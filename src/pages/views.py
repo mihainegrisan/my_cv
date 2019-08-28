@@ -20,3 +20,8 @@ def survey_view(request, *args, **kwargs):
 
     context = {'section' : 'survey'}
     return render(request, 'pages/survey.html', context)
+
+def weather_view(request, *args, **kwargs):
+
+    context = {'section' : 'weather'}
+    return render(request, 'pages/weather.html', context)
