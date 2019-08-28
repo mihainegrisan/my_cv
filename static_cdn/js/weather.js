@@ -40,7 +40,7 @@ if("geolocation" in navigator){
 
 // GET WEATHER FROM API PROVIDER
 const getWeather = (latitude, longitude) => {
-    let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`;
+    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${key}`;
 
     // sent the request then you'll get a response
     fetch(api)
