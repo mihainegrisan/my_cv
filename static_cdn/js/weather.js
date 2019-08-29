@@ -12,7 +12,7 @@ weather.temperature = {
 }
 
 const key = '5b0518f89c86ea27c70d5fc6a1a45e3c'
-// http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=5b0518f89c86ea27c70d5fc6a1a45e3c'
+// https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=5b0518f89c86ea27c70d5fc6a1a45e3c'
 // api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}
 
 // SET USER'S POSITION

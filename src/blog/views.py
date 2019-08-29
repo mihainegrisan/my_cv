@@ -1,16 +1,17 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Comment
-
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.core.mail import send_mail
+from .forms import EmailPostForm, CommentForm, PostForm
 
 from django.views.generic import ListView
-
-from .forms import EmailPostForm, CommentForm
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail
 
 from taggit.models import Tag
 
 from django.db.models import Count
+
+from django.template.defaultfilters import slugify
+from django.contrib import messages
 
 
 def post_share(request, post_id):
@@ -106,10 +107,44 @@ def post_detail(request, year, month, day, post):
 
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags','-publish')[:4]
 
-    return render(request, 'blog/post/detail.html', {'post':post,
-                                                     'comments':comments,
-                                                     'new_comment':new_comment,
-                                                     'comment_form':comment_form,
-                                                     'similar_posts': similar_posts})
+    context = { 'post':post,
+                'comments':comments,
+                'new_comment':new_comment,
+                'comment_form':comment_form,
+                'similar_posts': similar_posts
+                }
 
-    
+    return render(request, 'blog/post/detail.html', context)
+
+
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            # To use the data from the form you have to call cleaned_data
+            # It won't create the post if I give post.title to slugify()
+            cd = form.cleaned_data
+            post = form.save(commit=False)
+            post.author = request.user
+            post.slug = slugify(cd['title'])
+
+            # make sure the title is unique
+            if not Post.objects.filter(slug__exact=post.slug).exists():
+                post.save()
+                # Without this next line the tags won't be saved.
+                form.save_m2m()
+                messages.success(request, 'Your post is now live!')
+                return redirect('blog:post_detail',
+                                year=post.publish.year,
+                                month=post.publish.month,
+                                day=post.publish.day,
+                                post=post.slug)
+                # return redirect('blog:post_list')
+            else:
+                messages.error(request, 'Title already exists!')
+        else:
+            messages.error(request, 'Something went wrong. Try again.')
+    else:
+        form = PostForm()
+    return render(request, 'blog/post/post_edit.html', {'form': form})

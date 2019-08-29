@@ -3,29 +3,24 @@ body {
     padding:0;
     font-family:helvetica, sans-serif;
 }
-
 a {
     color:#00abff;
     text-decoration:none;
 }
-
 h1 {
     font-weight:normal;
     border-bottom:1px solid #bbb;
     padding:0 0 10px 0;
 }
-
 h2 {
     font-weight:normal;
     margin:30px 0 0;
 }
-
 #content {
     float:left;
     width:60%;
     padding:0 0 0 30px;
 }
-
 #sidebar {
     float:right;
     width:30%;
@@ -34,12 +29,10 @@ h2 {
     height:100%;
     overflow: auto;
 }
-
 .sidebar_content {
-    padding: 10%;
+    padding: 15%;
 
 }
-
 p.date {
     color:#ccc;
     font-family: georgia, serif;
@@ -55,7 +48,6 @@ p.date {
 
 
 /* forms */
-
 label {
     float:left;
     clear:both;
@@ -71,7 +63,6 @@ input, textarea {
     padding:6px 10px;
     font-size:12px;
 }
-
 input[type=submit] {
     font-weight:bold;
     background:#00abff;
@@ -96,7 +87,6 @@ input[type=submit] {
     border: 3px;
     border-style: solid;
 }
-
 /*
 .comment:nth-child(even) {
     background:#efefef;
@@ -106,4 +96,72 @@ input[type=submit] {
     font-weight:bold;
     font-size:12px;
     color:#666;
+}
+
+
+
+/* MAKE NEW POST FORM */
+form {
+    min-width: 320px;
+    height: 400px;
+}
+form p {
+    width: 100%;
+}
+form p label , form p input, form p textarea {
+    float: none;
+    clear: none;
+}
+form p textarea {
+    display: block;
+}
+
+
+@media only screen and (max-width: 650px) {
+    #sidebar {
+        float: none;
+        width: 100%;
+    }
+    .sidebar_content {
+        padding: 6%;
+    }
+}
+
+
+
+/* messages */
+ul.messages {
+    margin: 10px 100px;
+    padding: 0;
+    list-style-type: none;
+}
+ul.messages li.success,
+ul.messages li.warning,
+ul.messages li.error,
+ul.messages li.info {
+    margin: 0;
+    padding: 14px 20px;
+    list-style: none;
+    color: #fff;
+}
+
+ul.messages li.success { background: #81ce81; }
+ul.messages li.success a { color: #0ac33e; }
+
+ul.messages li.error { background: #a30029; color: #e9828e; }
+ul.messages li.error a { color: #e9828e; }
+
+ul.messages li.info { background:#faffae; color:#696b4e; }
+ul.messages li.info a { color:#1586de; }
+
+ul.messages li.warning { background:#de9404; }
+ul.messages li.warning a { color:#f49000; }
+
+ul.messages li a.close {
+    margin:0;
+    float:right;
+    opacity:1;
+    border:0;
+    box-shadow:none;
+    text-shadow:none;
 }
