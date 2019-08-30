@@ -8,7 +8,7 @@
 
 <div class="login-body">
     <div class="login-form">
-        <form action="{% url 'login' %}" method="post">
+        <form action="{% url 'account:login' %}" method="post">
             {% csrf_token %}
             <!-- instead of form . as_p  -->
             <div class="row center-align">
@@ -31,7 +31,7 @@
                     {% render_field field class="validate" %}
                     {% if field.html_name == 'password' %}
                         <div>
-                            <a href="{% url 'password_reset' %}"><b>Forgot password?</b></a>
+                            <a href="{% url 'account:password_reset' %}"><b>Forgot password?</b></a>
                         </div>
                     {% endif %}
                 </div>
@@ -44,7 +44,7 @@
             <div class="row"></div>
             <div class="row valign-wrapper">
                 <div class="col s6">
-                    <a href="{% url 'register' %}"><b>Create account</b></a>
+                    <a href="{% url 'account:register' %}"><b>Create account</b></a>
                 </div>
                 <div class="col s6 right-align">
                     <input class="waves-effect waves-light btn" type="submit" value="Login">

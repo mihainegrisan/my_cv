@@ -74,8 +74,8 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/post/list.html', context)
 
 
-def post_detail(request, year, month, day, post):
-    post = get_object_or_404(Post,  slug=post,
+def post_detail(request, year, month, day, post_slug):
+    post = get_object_or_404(Post,  slug=post_slug,
                                     status='published',
                                     publish__year=year,
                                     publish__month=month,
@@ -129,6 +129,7 @@ def post_new(request):
             post.author = request.user
             post.slug = slugify(cd['title'])
 
+            # Don't need it! cuz I have unique_for_date=True in my model
             # make sure the title is unique
             if not Post.objects.filter(slug__exact=post.slug).exists():
                 post.save()
@@ -139,7 +140,7 @@ def post_new(request):
                                 year=post.publish.year,
                                 month=post.publish.month,
                                 day=post.publish.day,
-                                post=post.slug)
+                                post_slug=post.slug)
                 # return redirect('blog:post_list')
             else:
                 messages.error(request, 'Title already exists!')

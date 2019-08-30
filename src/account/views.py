@@ -72,7 +72,7 @@ def user_login(request):
                 return HttpResponse('Invalid credentials.')
     else:
         form = LoginForm()
-    return render(request, 'account/login.html', {'form' : form})
+    return render(request, 'registration/login.html', {'form' : form})
 
 
 @login_required
@@ -87,7 +87,7 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated successfully.')
-            return redirect('dashboard')
+            return redirect('account:dashboard')
         else:
             messages.error(request, 'Error updating your profile.')
     else:

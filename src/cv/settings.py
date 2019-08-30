@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['mysite.com', '127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
+    'account',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,9 +135,9 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'account:dashboard'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
 
 AUTHENTICATION_BACKENDS = (
     #'social_core.backends.github.GithubOAuth2',
