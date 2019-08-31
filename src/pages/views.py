@@ -25,3 +25,8 @@ def weather_view(request, *args, **kwargs):
 
     context = {'section' : 'weather'}
     return render(request, 'pages/weather.html', context)
+
+def rock_paper_scissors_view(request, *args, **kwargs):
+
+    context = {'section' : 'rock_paper_scissors'}
+    return render(request, 'pages/rock_paper_scissors.html', context)

@@ -17,8 +17,8 @@
         <link href="{% static 'css/blog.css' %}?{% now 'D' %}" type="text/css" rel="stylesheet">
     </head>
     <body>
-        <div id="content">
 
+        <div id="content">
             {% if messages %}
                 <ul class="messages">
                     {% for message in messages %}
@@ -34,6 +34,7 @@
 
             {% endblock %}
         </div>
+
         <div id="sidebar">
             <div class="sidebar_content">
                 <a href="{% url 'pages:home' %}">Go back Home</a>
@@ -67,5 +68,6 @@
 
             </div>
         </div>
+
     </body>
 </html>

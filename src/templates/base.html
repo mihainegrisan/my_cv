@@ -16,6 +16,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'css/base.css' %}?{% now 'D' %}" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}">
 
     {% block link %}
 
@@ -33,6 +34,7 @@
         <li><a {% if section == 'contact' %}class='active'{% endif %} href="{% url 'pages:contact' %}">Contact</a></li>
         <li><a {% if section == 'survey' %}class='active'{% endif %} href="{% url 'pages:survey' %}">Survey</a></li>
         <li><a {% if section == 'weather' %}class='active'{% endif %} href="{% url 'pages:weather' %}">Weather</a></li>
+        <li><a {% if section == 'rock_paper_scissors' %}class='active'{% endif %} href="{% url 'pages:rock_paper_scissors' %}">Game</a></li>
       </ul>
     </nav>
 
