@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'qu$6!t+(zl_0ab0a_dl5ag6x7+z@g#7+xof#u^e(n^dnis_nx2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['mysite.com', '127.0.0.1', '.pythonanywhere.com']
 
@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'taggit',
     'blog.apps.BlogConfig',
     'social_django',
+    'shop',
+    'cart',
+    'orders',
 
     'widget_tweaks',
     'admin_honeypot',
@@ -78,6 +81,7 @@ TEMPLATES = [
 
                 'social_django.context_processors.backends',  # <--
                 'social_django.context_processors.login_redirect', # <--
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -168,3 +172,8 @@ else:
 
     SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '585939395621-tgbl6hierobpkc6h3pe1uj04ok6ip2l5.apps.googleusercontent.com' # Google Consumer Key
     SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81xazK6Sqj0SXzKJl0Bq3ANc' # Google Consumer Secret
+
+
+# This is the key that we are going to use to store the cart in the user session.
+# Since Django sessions are managed per-visitor, we can use the same cart session key for all sessions.
+CART_SESSION_ID = 'cart'

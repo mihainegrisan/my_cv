@@ -24,12 +24,18 @@ from pages.views import home_view
 
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
     path('borsec-admin/', admin.site.urls),
 
-    path('', include('pages.urls', namespace='pages')),
     path('blog/', include('blog.urls', namespace='blog')),
     path('account/', include('account.urls', namespace='account')),
-    path('social-auth/', include('social_django.urls', namespace='social')),
+
+    # E-commerce
+    path('cart/', include('cart.urls', namespace='cart')),
+    path('orders/', include('orders.urls', namespace='orders')),
+    path('shop/', include('shop.urls', namespace='shop')),
+
+    path('', include('pages.urls', namespace='pages')),
 
 ]
 
