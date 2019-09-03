@@ -25,7 +25,7 @@ SECRET_KEY = 'qu$6!t+(zl_0ab0a_dl5ag6x7+z@g#7+xof#u^e(n^dnis_nx2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['mysite.com', '127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -136,7 +136,19 @@ MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn') # content delivery network
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# EMAIL CONFIGURATION
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mihainegrisan.cv@gmail.com'
+EMAIL_HOST_PASSWORD = '1qaz2wsx3edc!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+
+# Celery - RabbitMQ
+# BROKER_URL = 'amqp://guest:**@localhost:5672//'
+
 
 
 LOGIN_REDIRECT_URL = 'account:dashboard'

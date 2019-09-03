@@ -30,6 +30,7 @@
         <li><a {% if section == 'home' %}class='active'{% endif %} href="{% url 'pages:home' %}">Home</a></li>
         <li><a href="{% url 'account:dashboard' %}">Login App</a></li>
         <li><a href="{% url 'blog:post_list' %}">Blog App</a></li>
+        <li><a href="{% url 'shop:product_list' %}">Ecommerce App</a></li>
         <li><a {% if section == 'about' %}class='active'{% endif %} href="{% url 'pages:about' %}">About</a></li>
         <li><a {% if section == 'contact' %}class='active'{% endif %} href="{% url 'pages:contact' %}">Contact</a></li>
         <li><a {% if section == 'survey' %}class='active'{% endif %} href="{% url 'pages:survey' %}">Survey</a></li>

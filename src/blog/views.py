@@ -30,9 +30,9 @@ def post_share(request, post_id):
 
             subject = '{} ({}) recommends your reading {}'.format(cd['name'], cd['email'], post.title)
 
-            message = 'Read "{}" at "{}"\n\n{}\'s comments:\n{}'.format(post.title, post_url, cd['name'], cd['comments'])
+            message = 'Read "{}" at "{}"\n\n{}\'s comments:\n\n{}'.format(post.title, post_url, cd['name'], cd['comments'])
 
-            send_mail(subject, message, 'admin@myblog.com', [cd['to']])
+            send_mail(subject, message, 'mihainegrisan.cv@gmail.com', [cd['to']])
             sent = True
     else:
         form = EmailPostForm()
