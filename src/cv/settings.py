@@ -44,12 +44,16 @@ INSTALLED_APPS = [
     'taggit',
     'blog.apps.BlogConfig',
     'social_django',
+
+    # E-commerce
     'shop',
     'cart',
     'orders',
+    'payment',
 
     'widget_tweaks',
     'admin_honeypot',
+    # 'django_celery_results', install before uncommenting
 ]
 
 MIDDLEWARE = [
@@ -146,8 +150,17 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-# Celery - RabbitMQ
-# BROKER_URL = 'amqp://guest:**@localhost:5672//'
+# Celery - Redis
+# CELERY_BROKER_URL = 'redis://localhost'
+# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# CELERY_ACCEPT_CONTENT = ['application/json']
+# CELERY_RESULT_SERIALIZER = 'json'
+# CELERY_TASK_SERIALIZER = 'json'
+
+# add to requirements.txt django-celery-results==1.1.2
+# CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_CACHE_BACKEND = 'django-cache'
+# CELERY_TASK_ALWAYS_EAGER = ?
 
 
 
@@ -189,3 +202,20 @@ else:
 # This is the key that we are going to use to store the cart in the user session.
 # Since Django sessions are managed per-visitor, we can use the same cart session key for all sessions.
 CART_SESSION_ID = 'cart'
+
+
+
+# Braintree settings
+# BRAINTREE_MERCHANT_ID = 'ccvs8jm6wwb4dkxx' # Merchant ID
+# BRAINTREE_PUBLIC_KEY = 'w2zz9zwvfbd4xxgc' # Public Key
+# BRAINTREE_PRIVATE_KEY = '1d7e3e6fab33f6b09757639f4b004fce' # Private key
+#
+# from braintree import Configuration, Environment
+#
+# Configuration.configure(
+#     # Environment.Production,
+#     Environment.Sandbox,
+#     BRAINTREE_MERCHANT_ID,
+#     BRAINTREE_PUBLIC_KEY,
+#     BRAINTREE_PRIVATE_KEY
+# )

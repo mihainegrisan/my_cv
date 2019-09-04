@@ -8,3 +8,4 @@ db.sqlite3
 celery.py
 tasks.py
 rabbitmq-signing-key-public.asc
+payment/
