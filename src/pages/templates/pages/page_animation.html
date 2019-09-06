@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/page_animation.css' %}">
+        <title>Page Animation</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <h3 id="logo">Dream Vacation</h3>
+                <img class="hamburger" src="{% static 'images/burger.svg' %}" alt="hamburger">
+            </nav>
+            <section>
+                <div class="hero">
+                    <img src="{% static 'images/dream_vacation.jpg' %}" alt="">
+                    <h1 class="headline">Dream Big</h1>
+                </div>
+            </section>
+        </header>
+
+        <div class="slider"></div>
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/page_animation.js' %}"></script>
+    </body>
+</html>
