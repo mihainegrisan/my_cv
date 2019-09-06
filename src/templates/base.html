@@ -26,17 +26,22 @@
   </head>
   <body>
     <nav>
-      <ul class="sidenav">
-        <li><a {% if section == 'home' %}class='active'{% endif %} href="{% url 'pages:home' %}">Home</a></li>
-        <li><a href="{% url 'account:dashboard' %}">Login App</a></li>
-        <li><a href="{% url 'blog:post_list' %}">Blog App</a></li>
-        <li><a href="{% url 'shop:product_list' %}">Ecommerce App</a></li>
-        <li><a {% if section == 'about' %}class='active'{% endif %} href="{% url 'pages:about' %}">About</a></li>
-        <li><a {% if section == 'contact' %}class='active'{% endif %} href="{% url 'pages:contact' %}">Contact</a></li>
-        <li><a {% if section == 'survey' %}class='active'{% endif %} href="{% url 'pages:survey' %}">Survey</a></li>
-        <li><a {% if section == 'weather' %}class='active'{% endif %} href="{% url 'pages:weather' %}">Weather</a></li>
-        <li><a {% if section == 'rock_paper_scissors' %}class='active'{% endif %} href="{% url 'pages:rock_paper_scissors' %}">Game</a></li>
-      </ul>
+        <a class="burger-nav" style="background: url({% static 'images/burger.svg' %}) no-repeat 98% center;"></a>
+
+        <ul class="sidenav">
+            <li><a {% if section == 'home' %}class='active'{% endif %} href="{% url 'pages:home' %}">Home</a></li>
+            <li><a href="{% url 'account:dashboard' %}">Login App</a></li>
+            <li><a href="{% url 'blog:post_list' %}">Blog App</a></li>
+            <li><a href="{% url 'shop:product_list' %}">Ecommerce App</a></li>
+            <li><a {% if section == 'about' %}class='active'{% endif %} href="{% url 'pages:about' %}">About</a></li>
+            <li><a {% if section == 'contact' %}class='active'{% endif %} href="{% url 'pages:contact' %}">Contact</a></li>
+            <li><a {% if section == 'survey' %}class='active'{% endif %} href="{% url 'pages:survey' %}">Survey</a></li>
+            <li><a {% if section == 'weather' %}class='active'{% endif %} href="{% url 'pages:weather' %}">Weather</a></li>
+            <li><a {% if section == 'rock_paper_scissors' %}class='active'{% endif %} href="{% url 'pages:rock_paper_scissors' %}">Game</a></li>
+            <li><a {% if section == 'music_app' %}class='active'{% endif %} href="{% url 'pages:music_app' %}">Music</a></li>
+            <li><a {% if section == 'page_animation' %}class='active'{% endif %} href="{% url 'pages:page_animation' %}">Animation</a></li>
+
+        </ul>
     </nav>
 
     <div class="content">
@@ -45,5 +50,10 @@
         {% endblock %}
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
   </body>
 </html>
