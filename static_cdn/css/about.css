@@ -33,6 +33,10 @@ section {
 section .abilities {
     width: 30px;
 }
-section .hobbies {
 
+section {
+    margin: 10px;
+    padding: 10px;
+    /* border: solid 1px white; */
+    border-radius: 10px;
 }

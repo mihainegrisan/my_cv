@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'shop',
     'cart',
     'orders',
-    'payment',
+    # 'payment',
 
     'widget_tweaks',
     'admin_honeypot',
