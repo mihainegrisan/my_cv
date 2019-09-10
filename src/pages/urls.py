@@ -21,5 +21,4 @@ urlpatterns = [
     path('music_app/', music_app_view, name='music_app'),
     path('page_animation/', page_animation_view, name='page_animation'),
 
-
 ]

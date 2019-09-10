@@ -41,3 +41,13 @@ def page_animation_view(request, *args, **kwargs):
 
     context = {'section' : 'page_animation'}
     return render(request, 'pages/page_animation.html', context)
+
+def web_design_view(request, *args, **kwargs):
+
+    context = {'section' : 'web_design'}
+    return render(request, 'pages/web_design.html', context)
+
+def photo_view(request, *args, **kwargs):
+
+
+    return render(request, 'pages/photo.html', {})

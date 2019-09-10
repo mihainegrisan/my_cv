@@ -20,7 +20,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from pages.views import home_view
 
 urlpatterns = [
     path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
@@ -35,7 +34,7 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     # path('payment/', include('payment.urls', namespace='payment')),
     path('shop/', include('shop.urls', namespace='shop')),
-
+    path('web_design/', include('web_design.urls', namespace='web_design')),
 
     path('', include('pages.urls', namespace='pages')),
 

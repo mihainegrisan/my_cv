@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{% static 'css/web_design.css' %}">
+        <style media="screen">
+            @font-face {
+                font-family: PopLight;
+                src: url("{% static 'fonts/Poppins-Light.ttf' %}");
+            }
+            @font-face {
+                font-family: PopRegular;
+                src: url("{% static 'fonts/Poppins-Regular.ttf' %}");
+            }
+        </style>
+        <title>John Savos</title>
+    </head>
+    <body>
+        <main>
+            <div class="banner">
+                <img src="{% static 'images/chef-bg.jpg' %}" alt="">
+                <div class="author">
+                    <h1>John Savos</h1>
+                    <h3>Pro Chef</h3>
+                </div>
+            </div>
+            <div class="story">
+                <div class="story-description">
+                    <h3>My Story</h3>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, </p>
+                    <p> remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+                <div class="profile">
+                    <img src="{% static 'images/chef-profile.jpg' %}" alt="profile">
+                </div>
+            </div>
+            <div class="my-work">
+                <div class="work-description">
+                    <h3>My Work</h3>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. </p>
+                    <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. </p>
+                </div>
+                <div class="work-gallery">
+                    <img src="{% static 'images/chef-gallery-1.jpg' %}" alt="">
+                    <img src="{% static 'images/chef-gallery-2.jpg' %}" alt="">
+                    <img src="{% static 'images/chef-gallery-3.jpg' %}" alt="">
+                    <img src="{% static 'images/chef-gallery-4.jpg' %}" alt="">
+                    <img src="{% static 'images/chef-gallery-5.jpg' %}" alt="">
+                    <img src="{% static 'images/chef-gallery-6.jpg' %}" alt="">
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
