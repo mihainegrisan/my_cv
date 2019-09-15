@@ -7,11 +7,12 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.mail import send_mail
 
 from taggit.models import Tag
-
 from django.db.models import Count
 
 from django.template.defaultfilters import slugify
 from django.contrib import messages
+
+from django.contrib.auth.decorators import login_required
 
 
 def post_share(request, post_id):
@@ -117,7 +118,7 @@ def post_detail(request, year, month, day, post_slug):
     return render(request, 'blog/post/detail.html', context)
 
 
-
+@login_required
 def post_new(request):
     if request.method == "POST":
         form = PostForm(request.POST)
