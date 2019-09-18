@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qu$6!t+(zl_0ab0a_dl5ag6x7+z@g#7+xof#u^e(n^dnis_nx2'
+SECRET_KEY = os.getenv("SECRET_KEY_CV")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = (os.getenv('DEBUG_VALUE') == 'True')
 
 ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1', '.pythonanywhere.com']
 
@@ -145,8 +145,8 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media_cdn')
 # EMAIL CONFIGURATION
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mihainegrisan.cv@gmail.com'
-EMAIL_HOST_PASSWORD = '1qaz2wsx3edc!'
+EMAIL_HOST_USER = os.getenv('EMAIL_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASS')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -162,7 +162,6 @@ EMAIL_USE_TLS = True
 # CELERY_RESULT_BACKEND = 'django-db'
 # CELERY_CACHE_BACKEND = 'django-cache'
 # CELERY_TASK_ALWAYS_EAGER = ?
-
 
 
 LOGIN_REDIRECT_URL = 'account:dashboard'
@@ -185,38 +184,28 @@ AUTHENTICATION_BACKENDS = (
 if DEBUG == True:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-    SOCIAL_AUTH_FACEBOOK_KEY = '500657657173593' # Facebook App ID
-    SOCIAL_AUTH_FACEBOOK_SECRET = '69df7169ee117bd21cfc7ea40d8f51fd' # Facebook App Secret
+    SOCIAL_AUTH_FACEBOOK_KEY_DEV = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY_DEV')
+    SOCIAL_AUTH_FACEBOOK_SECRET_DEV = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET_DEV')
     SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '1053881313048-ki6ajljemcns6ou60ee1skj4a9bbg9lm.apps.googleusercontent.com' # Google Consumer Key
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8jDm82jSjrOsNln3QJGwq9ly' # Google Consumer Secret
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY_DEV = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY_DEV')
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET_DEV = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET_DEV')
 else:
-    SOCIAL_AUTH_FACEBOOK_KEY = '445334359632844' # Facebook App ID
-    SOCIAL_AUTH_FACEBOOK_SECRET = '77807ab18529c7ee024839d740dffb6e' # Facebook App Secret
+    # SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_SSL_REDIRECT = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    X_FRAME_OPTIONS = 'DENY'
+
+    SOCIAL_AUTH_FACEBOOK_KEY_PROD = os.getenv('SOCIAL_AUTH_FACEBOOK_KEY_PROD')
+    SOCIAL_AUTH_FACEBOOK_SECRET_PROD = os.getenv('SOCIAL_AUTH_FACEBOOK_SECRET_PROD')
     SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 
-    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '585939395621-tgbl6hierobpkc6h3pe1uj04ok6ip2l5.apps.googleusercontent.com' # Google Consumer Key
-    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '81xazK6Sqj0SXzKJl0Bq3ANc' # Google Consumer Secret
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY_PROD = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY_PROD')
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET_PROD = os.getenv('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET_PROD')
 
 
 # This is the key that we are going to use to store the cart in the user session.
 # Since Django sessions are managed per-visitor, we can use the same cart session key for all sessions.
 CART_SESSION_ID = 'cart'
-
-
-
-# Braintree settings
-# BRAINTREE_MERCHANT_ID = 'ccvs8jm6wwb4dkxx' # Merchant ID
-# BRAINTREE_PUBLIC_KEY = 'w2zz9zwvfbd4xxgc' # Public Key
-# BRAINTREE_PRIVATE_KEY = '1d7e3e6fab33f6b09757639f4b004fce' # Private key
-#
-# from braintree import Configuration, Environment
-#
-# Configuration.configure(
-#     # Environment.Production,
-#     Environment.Sandbox,
-#     BRAINTREE_MERCHANT_ID,
-#     BRAINTREE_PUBLIC_KEY,
-#     BRAINTREE_PRIVATE_KEY
-# )
